@@ -8,7 +8,7 @@
       <span @click="btn('/find', 'Find')">发现音乐</span>
       <span @click="btn('/my', 'My')">我的音乐</span>
       <span @click="fn1('/part', 'Part', '小金同学')">小金同学</span>
-      <span @click="fn2('/part', 'Part2', '小可同学')">小可同学</span>
+      <span @click="fn2('/part', 'Part', '小可同学')">小可同学</span>
     </div>
     <div class="top">
       <!-- 第七步：设置挂载点-当url的hash值路径切换,显示规则里对应的组件到这 -->

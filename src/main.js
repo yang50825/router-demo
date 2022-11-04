@@ -27,6 +27,7 @@ const routes = [
     path: '/find',
     name: 'Find',
     component: Find,
+    redirect: '/find/recommend',
     children: [
       {
         path: 'recommend',
@@ -53,11 +54,6 @@ const routes = [
     component: Part,
   },
   {
-    path: '/part/:uname',
-    name: 'Part2',
-    component: Part,
-  },
-  {
     path: '*',
     component: NotFound,
   },
@@ -67,6 +63,19 @@ const routes = [
 const router = new VueRouter({
   routes,
   //   mode: 'history',
+})
+
+// to: 要去哪里，要跳转的路由
+// from: 从哪里来
+// next: 是否放行
+const isLogin = false
+router.beforeEach((to, from, next) => {
+  if (to.path === '/my' && isLogin === false) {
+    alert('请登录')
+    next(false) // 阻止路由跳转
+  } else {
+    next() // 正常放行
+  }
 })
 
 Vue.config.productionTip = false
